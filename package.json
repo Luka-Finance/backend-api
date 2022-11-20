@@ -8,7 +8,6 @@
 		"serve": "nodemon app.ts",
 		"build": "tsc --project ./",
 		"start": "npm run build && node ./build/app.js",
-		"db": "mysql -h 192.3.45.50 -u toltemte_luka_user -pP@ssword123 toltemte_luka_db -P 3306",
 		"seed": "sequelize db:seed:all"
 	},
 	"author": "",
