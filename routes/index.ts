@@ -58,7 +58,7 @@ routes.get('/transactions', transactions.getTransactions);
 routes.get('/transaction/get-details/:id', transactions.getTransactionDetails);
 routes.post('/transaction/name-enquiry', transactions.nameEnquiry);
 routes.get('/transaction/get-banks', transactions.getBanks);
-routes.post('/transaction/withdraw', verifyPin, checkBalance, withdrawals.payouts);
+routes.post('/transaction/withdraw', withdrawals.payouts);
 routes.post('/transaction/verify-pin', withdrawals.verifyPin);
 
 routes.use('/business', businessRoutes);

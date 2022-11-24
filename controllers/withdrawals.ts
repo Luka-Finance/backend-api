@@ -102,10 +102,12 @@ const payouts = async (req: Request, res: Response) => {
 const verifyPin = async (req: Request, res: Response) => {
 	const { pin } = req.body;
 	const { email, businessId } = req.staff;
+	console.log(pin, email, businessId);
 	if (!pin) return handleResponse(res, 401, false, `Pin required`);
 	const staff = await DB.staffs.findOne({ where: { email, businessId }, attributes: { exclude: ['createdAt', 'updatedAt'] } });
 	const validPin: boolean = await bcrypt.compareSync(pin, staff.pin);
 	if (!validPin) return handleResponse(res, 401, false, 'Incorrect Pin!');
+	return successResponse(res, 'Pin Verified');
 };
 
 export default {

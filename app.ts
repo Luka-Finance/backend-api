@@ -29,16 +29,16 @@ app.all('*', isAuthorized);
 app.use(routes);
 app.use('/admin', adminRoutes);
 
-cron.schedule('* * * * *', () => {
-	// 0 18 * * *
-	console.log('running a task every day by 6pm');
-	new Cron().creditDailyInterest();
-});
+// cron.schedule('* * * * *', () => {
+// 	// 0 18 * * *
+// 	console.log('running a task every day by 6pm');
+// 	new Cron().creditDailyInterest();
+// });
 
-cron.schedule('10 * * * *', () => {
-	// 59 23 * * *
-	console.log('running a task every day by 11:59pm');
-	new Cron().resetInterest();
-});
+// cron.schedule('10 * * * *', () => {
+// 	// 59 23 * * *
+// 	console.log('running a task every day by 11:59pm');
+// 	new Cron().resetInterest();
+// });
 
 module.exports = app;
